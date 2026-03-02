@@ -30,3 +30,7 @@ Scheduling the time table for a school can take up both shapes: If the schedulin
 
 Finding the optimal route while traveling can also take up both forms. If traffic needs to be considered, the input arrives over time. If traffic is negligible or ignored, only the roads have to be considered, which will not change for the duration of a single trip.
 
+## 1.2-1
+
+The sort function in a spreadsheet application requires a sorting algorithm. Since there are usually only a few rows, maybe thousands, raw computation performance is secondary. However, the sorting algorithm must allow for sorting by multiple criteria or be stable for multiple subsequent sorting operations by different criteria.
+
