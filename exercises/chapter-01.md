@@ -36,7 +36,9 @@ The sort function in a spreadsheet application requires a sorting algorithm. Sin
 
 ## 1.2-2
 
-$$ 8n^2 < 64n \log_{10} n && | : 8n \\ n < 8n \log_{10} n $$
+$$ 8n^2 < 64n \log_{10} n $$
+
+$$ n < 8n \log_{10} n $$
 
 ## 1.2-3
 
