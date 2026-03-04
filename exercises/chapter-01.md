@@ -36,19 +36,19 @@ The sort function in a spreadsheet application requires a sorting algorithm. Sin
 
 ## 1.2-2
 
-Insertion Sort: $ 8n^2 $
+Insertion Sort: $8n^2$
 
-Merge Sort: $ 64n \log_{10} n $
+Merge Sort: $64n \log_{10} n$
 
 Insertion Sort beats Merge Sort:
 
 $$ 8n^2 < 64n \log_{10} n $$
 
-Divide by $ 8n $:
+Divide by $8n$:
 
 $$ n < 8 \log_{10} n $$
 
-According to Wolfram Alpha, Insertion Sort beats Merge sort for $ 2, 3, 4, 5, 6 $.
+According to Wolfram Alpha, Insertion Sort beats Merge sort for $2, 3, 4, 5, 6$.
 
 ## 1.2-3
 
