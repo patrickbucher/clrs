@@ -53,3 +53,6 @@ According to Wolfram Alpha, Insertion Sort beats Merge sort for $2, 3, 4, 5, 6$.
 ## 1.2-3
 
 $$ 100n^2 < 2^n $$
+
+According to Wolfram Alpha, for $n=15$, the first algorithm ($100n^2$)runs faster than the second one ($2^n$).
+
