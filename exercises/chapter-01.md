@@ -34,3 +34,19 @@ Finding the optimal route while traveling can also take up both forms. If traffi
 
 The sort function in a spreadsheet application requires a sorting algorithm. Since there are usually only a few rows, maybe thousands, raw computation performance is secondary. However, the sorting algorithm must allow for sorting by multiple criteria or be stable for multiple subsequent sorting operations by different criteria.
 
+## 1.2-2
+
+$$
+
+8n^2 < 64n log_{10} n && | : 8n \\
+n < 8n log_{10} n
+
+$$
+
+## 1.2-3
+
+$$
+
+100n^2 < 2^n
+
+$$
