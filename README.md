@@ -4,5 +4,4 @@ Working throuth [Introduction to Algorithms](https://mitpress.mit.edu/9780262046
 
 ## TODO
 
-- implement insertion sort
-- implement bitwise addition
+- [ ] implement bitwise addition
