@@ -4,4 +4,4 @@ Working throuth [Introduction to Algorithms](https://mitpress.mit.edu/9780262046
 
 ## TODO
 
-- [ ] implement bitwise addition
+- continue working through chapter 2
