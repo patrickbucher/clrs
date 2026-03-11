@@ -1,6 +1,17 @@
 package clrs
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
+
+func TestRandIntsEmpty(t *testing.T) {
+	actual := RandInts(9, 1, 10)
+	expected := []int{}
+	if !slices.Equal(actual, expected) {
+		t.Fatalf("expected empty slice, was %v\n", actual)
+	}
+}
 
 func TestRandInts(t *testing.T) {
 	min := 11
