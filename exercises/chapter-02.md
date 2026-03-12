@@ -66,3 +66,39 @@ Termination: If $x \notin A[1;i]$ for $i=n$, the loop terminates without having 
         C[i+1] = carry
         return C
 
+## 2.2-1
+
+$f(n) = n^3/1000 + 100n^2 - 100n \Rightarrow \Theta(n^3)$
+
+## 2.2-2
+
+    Selection-Sort(A, n)
+        for i = 1 to n-1
+            smallest = +∞
+            k = -1
+            for j = i+1 to n
+                if A[j] < smallest
+                    smallest = A[j]
+                    k = j
+            temp = A[i]
+            A[i] = A[k]
+            A[k] = temp
+
+Invariant: All items of the subarray `A[1;i]` are smaller or equal than the items in the subarray `A[i+1;n]`. $\forall x \in A[1;i] \and y \in A[i+1;n]: x \leq y$
+
+Only the first $n-1$ items need to be considered, because $A[n]$ must be the largest element after $i=n-1$ elements have been processed. The element ending up at $A[n]$ was considered $n-1$ times to _not_ be the smallest element of $A[i;n]$, so it must be the largest one.
+
+Both best and worst case scenarios need to consider the entire remainder, i.e. the subarray $A[i+1;n]$, for every iteration of $1..n-1$ in order to find the smallest element: $\Theta(n^2)$
+
+## 2.2-3
+
+In the best case, linear search finds the element at the first position: $\Theta(1)$
+
+In the worst case, linear search finds no matching element after processing the entire array: $\Theta(n)$
+
+In the average case, linear search finds the element in the middle of the array after $n/2$ steps: $\Theta(n/2) \Rightarrow \Theta(n)$
+
+## 2.2-4
+
+An array can be checked in $n-1$ steps if it is already in order. If so, the procedure can terminate early, i.e. without doing any sorting at all.
+
