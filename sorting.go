@@ -16,3 +16,25 @@ func InsertionSort[T cmp.Ordered](items []T) {
 		items[j+1] = key
 	}
 }
+
+func SelectionSort[T cmp.Ordered](items []T) {
+	n := len(items)
+	if n <= 1 {
+		return
+	}
+	for i := range n - 1 {
+		k := i + 1
+		smallest := items[k]
+		for j := k + 1; j < n; j++ {
+			if items[j] < smallest {
+				smallest = items[j]
+				k = j
+			}
+		}
+		if smallest < items[i] {
+			temp := items[i]
+			items[i] = items[k]
+			items[k] = temp
+		}
+	}
+}

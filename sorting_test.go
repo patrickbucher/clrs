@@ -1,12 +1,17 @@
 package clrs
 
-import "testing"
+import (
+	"cmp"
+	"testing"
+)
 
 const SmallBenchSize = 100
 const BigBenchSize = 100000
 
-func TestInsertionSort(t *testing.T) {
-	tests := [][]int{
+type InPlaceSortFunc[T cmp.Ordered] func([]T)
+
+func sortingTests() [][]int {
+	var tests = [][]int{
 		{},
 		{1},
 		{1, 2},
@@ -22,7 +27,11 @@ func TestInsertionSort(t *testing.T) {
 		{-45, 45, 99},
 		{99, 45, -45},
 	}
-	for _, test := range tests {
+	return tests
+}
+
+func TestInsertionSort(t *testing.T) {
+	for _, test := range sortingTests() {
 		n := len(test)
 		original := make([]int, n)
 		copy(original, test)
@@ -34,11 +43,31 @@ func TestInsertionSort(t *testing.T) {
 }
 
 func BenchmarkInsertionSortSmall(b *testing.B) {
-	benchmarkInsertionSort(b, SmallBenchSize)
+	benchmarkInPlaceSort(b, InsertionSort, SmallBenchSize)
 }
 
 func BenchmarkInsertionSortBig(b *testing.B) {
-	benchmarkInsertionSort(b, BigBenchSize)
+	benchmarkInPlaceSort(b, InsertionSort, BigBenchSize)
+}
+
+func TestSelectionSort(t *testing.T) {
+	for _, test := range sortingTests() {
+		n := len(test)
+		original := make([]int, n)
+		copy(original, test)
+		SelectionSort(test)
+		if !IsSorted(test) {
+			t.Errorf("SelectionSort(%v) sorted as %v\n", original, test)
+		}
+	}
+}
+
+func BenchmarkSelectionSortSmall(b *testing.B) {
+	benchmarkInPlaceSort(b, SelectionSort, SmallBenchSize)
+}
+
+func BenchmarkSelectionSortBig(b *testing.B) {
+	benchmarkInPlaceSort(b, SelectionSort, BigBenchSize)
 }
 
 func benchmarkInsertionSort(b *testing.B, size int) {
@@ -47,5 +76,14 @@ func benchmarkInsertionSort(b *testing.B, size int) {
 		items := RandInts(0, size, size)
 		b.StartTimer()
 		InsertionSort(items)
+	}
+}
+
+func benchmarkInPlaceSort(b *testing.B, f InPlaceSortFunc[int], size int) {
+	for b.Loop() {
+		b.StopTimer()
+		items := RandInts(0, size, size)
+		b.StartTimer()
+		f(items)
 	}
 }

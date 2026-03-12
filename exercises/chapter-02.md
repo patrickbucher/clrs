@@ -74,15 +74,16 @@ $f(n) = n^3/1000 + 100n^2 - 100n \Rightarrow \Theta(n^3)$
 
     Selection-Sort(A, n)
         for i = 1 to n-1
-            smallest = +∞
-            k = -1
-            for j = i+1 to n
+            k = i+1
+            smallest = A[k]
+            for j = k+1 to n
                 if A[j] < smallest
                     smallest = A[j]
                     k = j
-            temp = A[i]
-            A[i] = A[k]
-            A[k] = temp
+            if smallest < A[i]
+                temp = A[i]
+                A[i] = A[k]
+                A[k] = temp
 
 Invariant: All items of the subarray $A[1;i]$ are smaller or equal than the items in the subarray $A[i+1;n]$. $\forall x \in A[1;i] \wedge y \in A[i+1;n]: x \leq y$
 
