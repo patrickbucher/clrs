@@ -22,17 +22,17 @@ given: $A=[31,41,59,26,41,58], n=6$, 1-based indices
 
 ## 2.1-2
 
-Invariant: The variable `sum` holds the sum of all values of `A` that already have been processed by the loop, i.e. the sum of `A[1;i-1]`.
+Invariant: The variable `sum` holds the sum of all values of `A` that already have been processed by the loop, i.e. the sum of $A[1;i-1]$.
 
-Initialization: Before the first iteration, the subarray `A[1;0]` is an empty array with the sum of 0.
+Initialization: Before the first iteration, the subarray $A[1;0]$ is an empty array with the sum of 0.
 
-Maintenance: The `sum` variable is increased by `A[i]` in every iteration, holding the sum of `A[1;i]`.
+Maintenance: The `sum` variable is increased by $A[i]$ in every iteration, holding the sum of $A[1;i]$.
 
-Termination: Once $i=n$, the loop terminates, after `A[n]` has been added to `sum`.
+Termination: Once $i=n$, the loop terminates, after $A[n]$ has been added to `sum`.
 
 ## 2.1-3
 
-The condition `A[j] > key` on line 5 needs to replaced with `A[j] < key`.
+The condition $A[j] > key$ on line 5 needs to replaced with $A[j] < key$.
 
 ## 2.1-4
 
@@ -44,11 +44,11 @@ given: $A=<a_1,a_2,\ldots,a_n>, n, x$,
                 return i
         return NIL
 
-Invariant: The subarray `A[1;i]` does not contain `x`.
+Invariant: The subarray $A[1;i]$ does not contain $x$.
 
-Initialization: The subarray `A[1;0]` is empty.
+Initialization: The subarray $A[1;0]$ is empty.
 
-Maintenance: The loop continues if `A[i]` is not equal to `x`, or terminates otherwise.
+Maintenance: The loop continues if $A[i]$ is not equal to $x$, or terminates otherwise.
 
 Termination: If $x \notin A[1;i]$ for $i=n$, the loop terminates without having returned an index. For $x \in A[1;i]$ for $i=n$, the function returned the index $j$ for $A[j] = x$.
 
@@ -84,7 +84,7 @@ $f(n) = n^3/1000 + 100n^2 - 100n \Rightarrow \Theta(n^3)$
             A[i] = A[k]
             A[k] = temp
 
-Invariant: All items of the subarray `A[1;i]` are smaller or equal than the items in the subarray `A[i+1;n]`. $\forall x \in A[1;i] \and y \in A[i+1;n]: x \leq y$
+Invariant: All items of the subarray $A[1;i]$ are smaller or equal than the items in the subarray $A[i+1;n]$. $\forall x \in A[1;i] \wedge y \in A[i+1;n]: x \leq y$
 
 Only the first $n-1$ items need to be considered, because $A[n]$ must be the largest element after $i=n-1$ elements have been processed. The element ending up at $A[n]$ was considered $n-1$ times to _not_ be the smallest element of $A[i;n]$, so it must be the largest one.
 
