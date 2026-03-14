@@ -38,3 +38,25 @@ func SelectionSort[T cmp.Ordered](items []T) {
 		}
 	}
 }
+
+func MergeSort[T cmp.Ordered](items []T) {
+	n := len(items)
+	if n <= 1 {
+		return
+	}
+	mergeSort(items, 0, n-1)
+}
+
+func mergeSort[T cmp.Ordered](items []T, p, r int) {
+	if p >= r {
+		return
+	}
+	q := (p + r) / 2
+	mergeSort(items, p, q)
+	mergeSort(items, q+1, r)
+	merge(items, p, q, r)
+}
+
+func merge[T cmp.Ordered](items []T, p, q, r int) {
+	// TODO: implement
+}

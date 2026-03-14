@@ -87,3 +87,15 @@ func benchmarkInPlaceSort(b *testing.B, f InPlaceSortFunc[int], size int) {
 		f(items)
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	for _, test := range sortingTests() {
+		n := len(test)
+		original := make([]int, n)
+		copy(original, test)
+		MergeSort(test)
+		if !IsSorted(test) {
+			t.Errorf("SelectionSort(%v) sorted as %v\n", original, test)
+		}
+	}
+}
