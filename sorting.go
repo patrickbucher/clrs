@@ -1,6 +1,7 @@
 package clrs
 
 import "cmp"
+import "fmt"
 
 func InsertionSort[T cmp.Ordered](items []T) {
 	n := len(items)
@@ -44,7 +45,7 @@ func MergeSort[T cmp.Ordered](items []T) {
 	if n <= 1 {
 		return
 	}
-	mergeSort(items, 0, n-1)
+	mergeSort(items, 0, n) // [4, 1, 2, 3], 0, 3
 }
 
 func mergeSort[T cmp.Ordered](items []T, p, r int) {
@@ -52,11 +53,47 @@ func mergeSort[T cmp.Ordered](items []T, p, r int) {
 		return
 	}
 	q := (p + r) / 2
-	mergeSort(items, p, q)
-	mergeSort(items, q+1, r)
-	merge(items, p, q, r)
+	mergeSort(items, p, q) // 0, 1
+	mergeSort(items, q, r) // 1, 3
+	merge(items, p, q, r) // 0, 1, 3
 }
 
 func merge[T cmp.Ordered](items []T, p, q, r int) {
-	// TODO: implement
+	fmt.Printf("merge(%v, %d, %d, %d)\n", items, p, q, r)
+	nl := q - p // 1
+	nr := r - q // 2
+	left := make([]T, nl)
+	right := make([]T, nr)
+	nc := copy(left, items[p:q+1]) // 0:1
+	if nc != nl {
+		fmt.Println("left nc expected", nl, "was", nc)
+	}
+	nc = copy(right, items[q+1:r+1]) // 1:3
+	if nc != nr {
+		fmt.Println("right nc expected", nr, "was", nc)
+	}
+	fmt.Println("original", items)
+	fmt.Println("left", left)
+	fmt.Println("right", right)
+	i, j, k := 0, 0, p
+	for i < nl && j < nr {
+		if left[i] <= right[j] {
+			items[k] = left[i]
+			i++
+		} else {
+			items[k] = right[j]
+			j++
+		}
+		k++
+	}
+	for i < nl {
+		items[k] = left[i]
+		i++
+		k++
+	}
+	for j < nr {
+		items[k] = right[j]
+		j++
+		k++
+	}
 }
