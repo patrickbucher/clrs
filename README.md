@@ -7,6 +7,7 @@ Working throuth [Introduction to Algorithms](https://mitpress.mit.edu/9780262046
 - Sorting: `sorting.go`
     - Insertion Sort (`InsertionSort`)
     - Selection Sort (`SelectionSort`)
+    - Merge Sort (`MergeSort`)
 - Binary: `binary.go`
     - Binary Addition (`BinaryAddition`)
 - Utilities: `utils.go`
