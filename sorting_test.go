@@ -3,7 +3,6 @@ package clrs
 import (
 	"cmp"
 	"testing"
-	"fmt"
 )
 
 const SmallBenchSize = 100
@@ -76,8 +75,6 @@ func TestMergeSort(t *testing.T) {
 		work := make([]int, n)
 		copy(work, test)
 		MergeSort(work)
-		fmt.Printf("original: %v\n", test);
-		fmt.Printf("sorted:   %v\n", work);
 		if !IsSorted(work) {
 			t.Errorf("SelectionSort(%v) sorted as %v\n", test, work)
 		}
@@ -90,7 +87,6 @@ func TestMergeSortDebug(t *testing.T) {
 	work := make([]int, n)
 	copy(work, orig)
 	MergeSort(work)
-	fmt.Println("sorted", orig, "as", work)
 }
 
 func BenchmarkMergeSortSmall(b *testing.B) {
